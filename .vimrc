@@ -6,7 +6,7 @@ set nobackup                         " don't make a backup before overwriting a 
 set nowritebackup                    " ^^^
 set noswapfile                       " don't need no stinky swapfiles
 set directory=~/tmp,/tmp             " keep swap files in one location
-
+set l
 set confirm                          " confirm on quit, etc.
 set autoread                         " automatically read changes from disk
 
