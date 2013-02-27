@@ -39,7 +39,7 @@
 " OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 " THE SOFTWARE.
 
-set background=dark
+set background=light
 
 hi clear
 
@@ -290,12 +290,11 @@ endfun
 " }}}
 
 call s:X("Normal","e8e8d3","151515","","White","")
-set background=dark
+set background=light
 
 if !exists("g:jellybeans_use_lowcolor_black") || g:jellybeans_use_lowcolor_black
     let s:termBlack = "Black"
 else
-    let s:termBlack = "Grey"
 endif
 
 if version >= 700
