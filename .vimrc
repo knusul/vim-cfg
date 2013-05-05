@@ -339,7 +339,6 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gd :Gdiff<CR>
-autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \ nnoremap <buffer> .. :edit %:h<CR> |
@@ -551,7 +550,7 @@ else
 " hi ColorColumn guibg=#111
 " endif
  "   colors jellybeans
- colors GitHub
+"  colors smyck
 " colo smyck
 " colors madeofcode
 " colors giant-goldfish
@@ -562,7 +561,7 @@ else
 " colors solarized
 " colors mustang
 " colors wombat256mod
-" colors jellybeans
+ colors jellybeans
   endif
 endif
 
@@ -575,3 +574,5 @@ source ~/.vim/pasting.vim
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+au InsertLeave * hi Cursor guibg=red
+au InsertEnter * hi Cursor guibg=green
