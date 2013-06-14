@@ -3,7 +3,6 @@ set nocompatible " turn off compatibility with Vi
 
 set hidden " hide buffers when not displayed
 set nowrap " don't wrap long lines by default
-set showbreak=↪ " better line wraps
 set autoindent " for filetypes that doesn't have indent rules
 set number " show line numbering
 
@@ -52,7 +51,6 @@ set complete=.,w,b,u
 set matchpairs+=<:> " add < and > to the chars that can be navigated with %
 
 set list " show trailing whitespace etc
-set listchars=tab:»\ ,trail:·,nbsp:·
 
 set scrolloff=3 " context in lines around the cursor
 set sidescrolloff=3 " context in columns around the cursor
@@ -335,6 +333,7 @@ map <leader>z :ZoomWin<CR>
 Bundle 'michaeljsmith/vim-indent-object'
 
 Bundle 'tpope/vim-fugitive'
+Bundle "tpope/vim-dispatch"
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit -v<CR>
@@ -343,14 +342,8 @@ autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \ nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
-
-" Bundle 'msanders/snipmate.vim'
-" let g:snippets_dir = "~/.vim/snippets"
-" source ~/.vim/snippets/support_functions.vim
-
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
 Bundle 'honza/snipmate-snippets'
 let g:snips_trigger_key = '<C-e>'
 let g:snips_trigger_key_backwards = '<S-M-e>'
@@ -401,6 +394,7 @@ Bundle 'sickill/vim-pasta'
 " let g:pasta_disabled_filetypes = ['python']
 
 Bundle 'vim-coffee-script'
+Bundle "slim-template/vim-slim"
 " Bundle 'briancollins/vim-jst'
 Bundle 'godlygeek/tabular'
 
@@ -419,16 +413,11 @@ nmap <leader>mv :Rename
 " let g:Powerline_symbols = "unicode"
 
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '-'
 " let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_lazy_update = 150 " ms
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.bundle$'
-let g:ctrlp_max_depth = 10
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_mruf_relative = 1
-let g:ctrlp_working_path_mode = 0
-nmap <leader>e :CtrlP %%<CR>
 " let g:ctrlp_by_filename = 1
+nmap <leader>e :CtrlP %<CR>
 
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
