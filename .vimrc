@@ -91,6 +91,7 @@ set stl+=/
 set stl+=%{&ft} " Type (python).
 set stl+=)
 set stl+=\ (line\ %l\/%L,\ col\ %03c) " Line and column position and counts.
+set tags=.git/tags
 
 if &diff
   set nonumber " no line numbers in vimdiff
@@ -232,9 +233,6 @@ nnoremap <silent> ]= :echo 'Use ]n'<CR>
 " Hide search highlighting
 nnoremap <silent> <CR> :noh<CR><CR>
 
-" close and *delete* current file
-nmap <leader>x :Unlink<CR>
-
 " close current window
 " nmap <leader>q <C-w>q
 
@@ -344,7 +342,6 @@ autocmd User fugitive
   \ endif
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
 let g:snips_trigger_key = '<C-e>'
 let g:snips_trigger_key_backwards = '<S-M-e>'
 
@@ -366,9 +363,9 @@ Bundle 'nginx.vim'
 Bundle 'vim-json-bundle'
 " Bundle 'greplace.vim'
 
-" Bundle 'Syntastic'
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_disabled_filetypes = ['eruby']
+Bundle 'Syntastic'
+let g:syntastic_enable_signs = 1
+let g:syntastic_disabled_filetypes = ['eruby']
 
 " Bundle 'bingaman/vim-sparkup'
 
@@ -565,3 +562,4 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 au InsertLeave * hi Cursor guibg=red
 au InsertEnter * hi Cursor guibg=green
+nnoremap <F9> :Dispatch!<CR>
