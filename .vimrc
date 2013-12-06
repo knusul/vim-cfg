@@ -562,4 +562,6 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 au InsertLeave * hi Cursor guibg=red
 au InsertEnter * hi Cursor guibg=green
+cnoremap %l<Tab> <C-R>=expand('%:p').':'.line('.')<CR>
 nnoremap <F9> :Dispatch!<CR>
+nm <F8> :FocusDispatch spin push %l<Tab><CR>
