@@ -290,12 +290,6 @@ noremap <leader>n :call ToggleNumbering()<cr>
 
 " }}}
 
-" Abbreviations {{{
-
-ia mk/ http://ku1ik.com/
-ia gh/ https://github.com/
-ia ghs/ https://github.com/sickill/
-
 cabbr Q q
 
 " }}}
@@ -305,33 +299,33 @@ cabbr Q q
 runtime functions.vim
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'gmarik/vundle'
+Plugin 'vim-ruby/vim-ruby'
 
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 map <leader>a :Ack!<Space>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " let g:ackprg = 'git grep -H --line-number --no-color --untracked'
 
-Bundle 'endwise.vim'
-Bundle 'edsono/vim-matchit'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'timcharper/textile.vim'
-" Bundle 'pangloss/vim-javascript' <- when enabling fix g:html_indent_tags issue
+Plugin 'endwise.vim'
+Plugin 'edsono/vim-matchit'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'timcharper/textile.vim'
+" Plugin 'pangloss/vim-javascript' <- when enabling fix g:html_indent_tags issue
 
-Bundle 'ZoomWin'
+Plugin 'ZoomWin'
 map <leader>z :ZoomWin<CR>
 
-Bundle 'michaeljsmith/vim-indent-object'
+Plugin 'michaeljsmith/vim-indent-object'
 
-Bundle 'tpope/vim-fugitive'
-Bundle "tpope/vim-dispatch"
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit -v<CR>
@@ -340,17 +334,17 @@ autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \ nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 let g:snips_trigger_key = '<C-e>'
 let g:snips_trigger_key_backwards = '<S-M-e>'
 
-Bundle 'jgdavey/vim-blockle'
+Plugin 'jgdavey/vim-blockle'
 let g:blockle_mapping = '<leader>b'
 
-Bundle 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 " bubble current line
 nmap <M-j> ]eV=
 nmap <M-k> [eV=
@@ -358,24 +352,24 @@ nmap <M-k> [eV=
 vmap <M-j> ]egv=gv
 vmap <M-k> [egv=gv
 
-Bundle 'BufOnly.vim'
-Bundle 'nginx.vim'
-Bundle 'vim-json-bundle'
-" Bundle 'greplace.vim'
+Plugin 'BufOnly.vim'
+Plugin 'nginx.vim'
+Plugin 'vim-json-bundle'
+" Plugin 'greplace.vim'
 
-Bundle 'Syntastic'
+Plugin 'Syntastic'
 let g:syntastic_enable_signs = 1
 let g:syntastic_disabled_filetypes = ['eruby']
 
-" Bundle 'bingaman/vim-sparkup'
+" Plugin 'bingaman/vim-sparkup'
 
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 let g:solarized_contrast = "high"
 " " let g:solarized_termcolors = 256
 
-Bundle 'tpope/vim-bundler'
+Plugin 'tpope/vim-bundler'
 
-" Bundle 'vimwiki'
+" Plugin 'vimwiki'
 " nmap <silent> <Leader>_ww <Plug>VimwikiIndex
 " nmap <silent> <Leader>_wt <Plug>VimwikiTabIndex
 " nmap <silent> <Leader>_ws <Plug>VimwikiUISelect
@@ -384,72 +378,67 @@ Bundle 'tpope/vim-bundler'
 " nmap <silent> <Leader>_w<Leader>w <Plug>VimwikiMakeDiaryNote
 " nmap <silent> <Leader>_w<Leader>t <Plug>VimwikiTabMakeDiaryNote
 
-Bundle 'tpope/vim-abolish'
+Plugin 'tpope/vim-abolish'
 
-Bundle 'sickill/vim-pasta'
+Plugin 'sickill/vim-pasta'
 " let g:pasta_enabled_filetypes = ['ruby']
 " let g:pasta_disabled_filetypes = ['python']
 
-Bundle 'vim-coffee-script'
-Bundle "slim-template/vim-slim"
-" Bundle 'briancollins/vim-jst'
-Bundle 'godlygeek/tabular'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'slim-template/vim-slim'
+" Plugin 'briancollins/vim-jst'
+Plugin 'godlygeek/tabular'
 
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 " let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 
-Bundle 'tpope/vim-eunuch'
+Plugin 'tpope/vim-eunuch'
 ca w!! SudoWrite
 nmap <leader>mv :Rename %%
 
-Bundle 'henrik/rename.vim'
+Plugin 'henrik/rename.vim'
 nmap <leader>mv :Rename
 
-" Bundle 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
 " let g:Powerline_symbols = "unicode"
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 " let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_lazy_update = 150 " ms
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.bundle$'
 " let g:ctrlp_by_filename = 1
 nmap <leader>e :CtrlP %<CR>
 
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-" Bundle 'sickill/vim-git-inline-diff'
-
-" Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'wookiehangover/jshint.vim'
-" Bundle 'manalang/jshint.vim'
-
-Bundle 'nono/vim-handlebars'
+Plugin 'nono/vim-handlebars'
 
 " let g:netrw_liststyle = 3
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 nmap <silent> <leader>n :NERDTreeToggle<CR>
 let NERDTreeMapOpenSplit = "s"
 let NERDTreeMapOpenVSplit = "v"
 let NERDTreeMinimalUI = 1
 
-Bundle 'jpalardy/vim-slime'
+Plugin 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 
-" Bundle 'tpope/vim-haml'
-" Bundle 'cakebaker/scss-syntax.vim'
+" Plugin 'tpope/vim-haml'
+" Plugin 'cakebaker/scss-syntax.vim'
 
-" Bundle 'jgdavey/tslime.vim'
-" Bundle 'jgdavey/vim-turbux'
+" Plugin 'jgdavey/tslime.vim'
+" Plugin 'jgdavey/vim-turbux'
 
-" Bundle 'godlygeek/csapprox'
-" Bundle 'kana/vim-smartinput'
+" Plugin 'godlygeek/csapprox'
+" Plugin 'kana/vim-smartinput'
 
-" Bundle 'myusuf3/numbers.vim'
+" Plugin 'myusuf3/numbers.vim'
+call vundle#end()
 
 filetype plugin indent on " enable indendation/internal plugins after Vundle
 
