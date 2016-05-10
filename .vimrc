@@ -304,13 +304,16 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'altercation/vim-colors-solarized' 
+Plugin 'derekwyatt/vim-scala'
 
 Plugin 'mileszs/ack.vim'
+Plugin 'leafgarland/typescript-vim'
 map <leader>a :Ack!<Space>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " let g:ackprg = 'git grep -H --line-number --no-color --untracked'
-
 Plugin 'endwise.vim'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'edsono/vim-matchit'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
@@ -320,6 +323,12 @@ Plugin 'timcharper/textile.vim'
 " Plugin 'pangloss/vim-javascript' <- when enabling fix g:html_indent_tags issue
 
 Plugin 'ZoomWin'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+
+map <c-f> :call JsBeautify()<cr>
+
 map <leader>z :ZoomWin<CR>
 
 Plugin 'michaeljsmith/vim-indent-object'
@@ -357,14 +366,12 @@ Plugin 'nginx.vim'
 Plugin 'vim-json-bundle'
 " Plugin 'greplace.vim'
 
-Plugin 'Syntastic'
-let g:syntastic_enable_signs = 1
-let g:syntastic_disabled_filetypes = ['eruby']
+" Plugin 'Syntastic'
+" let g:syntastic_enable_signs = 1
+" let g:syntastic_disabled_filetypes = ['eruby']
 
 " Plugin 'bingaman/vim-sparkup'
 
-Plugin 'altercation/vim-colors-solarized'
-let g:solarized_contrast = "high"
 " " let g:solarized_termcolors = 256
 
 Plugin 'tpope/vim-bundler'
@@ -510,23 +517,14 @@ augroup END
 
 syntax enable " Turn on syntax highlighting
 
-if (&term == "linux")
-" colors ???
-else
-" Colors for console
-  if !has("gui_running")
-    set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
-  endif
+set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
+colorscheme grb4
 
-  if !has("gui_running")
-" set background=dark
-" colors grb256
-" if (g:colors_name == "grb256")
-" hi ColorColumn guibg=#111
-" endif
- "   colors jellybeans
-"  colors smyck
-" colo smyck
+set background=dark
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors=256
+ colors solarized
 " colors madeofcode
 " colors giant-goldfish
 " colors molokai
@@ -536,13 +534,10 @@ else
 " colors solarized
 " colors mustang
 " colors wombat256mod
- colors jellybeans
-  endif
-endif
+" colors jellybeans
+Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 
 " }}}
-
-source ~/.vim/pasting.vim
 
 " Load local config {{{
 
